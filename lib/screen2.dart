@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class Screen2 extends StatelessWidget {
-  String notificationContent;
+  String? notificationContent;
 
-  Screen2(this.notificationContent, {Key? key}) : super(key: key);
+  Screen2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final notificationContent =
+        ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
       appBar: AppBar(title: Text('Screen2')),
       body: Center(

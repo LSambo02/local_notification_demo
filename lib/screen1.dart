@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:local_demo/notification_manager.dart';
 
 class Screen1 extends StatelessWidget {
-  const Screen1({Key? key}) : super(key: key);
+  Screen1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

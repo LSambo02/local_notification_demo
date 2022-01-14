@@ -1,15 +1,14 @@
 import 'dart:developer';
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:local_demo/screen2.dart';
+import 'package:local_demo/constants.dart';
+import 'package:local_demo/main.dart';
 
 class NotificationsManager {
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
-  static final GlobalKey<NavigatorState> navigatorKey =
-      GlobalKey<NavigatorState>();
+  // static final GlobalKey<NavigatorState> navigatorKey =
+  //     GlobalKey<NavigatorState>();
 
   Future<void> initializeNotifications() async {
     AndroidInitializationSettings initializationSettingsAndroid =
@@ -23,7 +22,7 @@ class NotificationsManager {
             android: initializationSettingsAndroid,
             iOS: initializationSettingsIOS);
     log('NotificationsManager.dart::: notification!!!');
-    flutterLocalNotificationsPlugin.initialize(initializationSettings,
+    await flutterLocalNotificationsPlugin.initialize(initializationSettings,
         onSelectNotification: onSelectNotification);
   }
 
@@ -45,8 +44,8 @@ class NotificationsManager {
   }
 
   showNotification(String? payload) {
-    navigatorKey.currentState!
-        .push(MaterialPageRoute(builder: (context) => Screen2(payload!)));
+    route = screen2;
+    MyApp.navigatorKey.currentState!.pushNamed(route, arguments: payload!);
   }
 
   void onSelectNotification(String? payload) async {
