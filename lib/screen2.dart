@@ -7,12 +7,11 @@ class Screen2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final notificationContent =
-        ModalRoute.of(context)!.settings.arguments as String;
+    final notificationContent = ModalRoute.of(context)!.settings.arguments;
     return Scaffold(
-      appBar: AppBar(title: Text('Screen2')),
+      appBar: AppBar(title: const Text('Screen2')),
       body: Center(
-        child: Text(notificationContent),
+        child: Text(notificationContent.toString()),
       ),
     );
   }
